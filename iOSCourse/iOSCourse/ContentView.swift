@@ -8,16 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+
     var body: some View {
-        VStack {
-            ScrollView {
-                // TODO: - Now is empty. Need to filling in next tasks
-                Rectangle() // Mock content
-                    .frame(height: UIScreen.main.bounds.height)
+        ScrollView {
+            VStack {
+                ForEach(1..<30) { item in
+                    Text("Item \(item)")
+                        .padding(8)
+                        .frame(
+                            width: UIScreen.main.bounds.width,
+                            alignment: .leading
+                        )
+                }
             }
+        }
+        .safeAreaInset(edge: .bottom) {
             Rectangle()
+                .foregroundStyle(.red.opacity(0.3))
                 .frame(height: 50)
-                .foregroundColor(.red)
         }
     }
 }
