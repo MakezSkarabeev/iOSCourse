@@ -8,35 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var containerWidth: CGFloat = 300
 
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(1..<30) { item in
-                    Text("Item \(item)")
-                        .padding(8)
-                        .frame(
-                            width: UIScreen.main.bounds.width,
-                            alignment: .leading
-                        )
-                }
-            }
+        VStack {
+            (
+                Text("Марафон")
+                    .font(.largeTitle)
+                    .foregroundColor(.blue)
+                + Text(" по SwiftUI ")
+                    .font(.subheadline)
+                    .foregroundColor(.red)
+                + Text("<Отцовский пинок>")
+                    .fontWeight(.thin)
+            )
+            .padding(.all)
+            .border(.red)
+            .frame(width: containerWidth)
+
+            Slider(
+                value: $containerWidth,
+                in: 100...300
+            )
         }
-        .safeAreaInset(edge: .bottom) {
-            Rectangle()
-                .foregroundStyle(.red.opacity(0.3))
-                .frame(height: 50)
-        }
+
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TabView {
-            ContentView()
-                .tabItem {
-                    Label("First tab", systemImage: "star")
-                }
-        }
+        ContentView()
     }
 }

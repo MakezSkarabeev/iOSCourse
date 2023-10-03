@@ -11,12 +11,7 @@ import SwiftUI
 struct iOSCourseApp: App {
     var body: some Scene {
         WindowGroup {
-            TabView {
-                ContentView()
-                    .tabItem {
-                        Label("first tab", systemImage: "star")
-                    }
-            }
+            ContentView()
         }
     }
 }
